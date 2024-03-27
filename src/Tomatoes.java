@@ -27,13 +27,16 @@ public class Tomatoes {
         for(int i = 0; i < pots.length; i++)
         {
            currentDifference = pots[i] - numOfTomatoInEachPot;
-           currentImbalance = currentImbalance + (numOfTomatoInEachPot - pots[i]);
+           //tracks the current imbalance
+           currentImbalance = currentImbalance + currentDifference;
+
            currentMax = Math.max(currentDifference, Math.abs(currentImbalance));
+           //checks to see if I need to replace the prev max with the current max
            if (prevMax < currentMax)
            {
             prevMax = currentMax;
            }
-           //System.out.println(pots[i] + " currentDifference: " + currentDifference + " currentImbalance" + currentImbalance + " currentMax" + currentMax + " previous Max: " +prevMax);
+           //System.out.println(pots[i] + " currentDifference: " + currentDifference + " currentImbalance: " + currentImbalance + " currentMax: " + currentMax + " previous Max: " +prevMax);
 
         }
         return prevMax;
